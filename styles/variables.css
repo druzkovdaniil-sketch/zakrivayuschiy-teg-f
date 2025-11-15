@@ -1,1 +1,28 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --bg-pattern: 
+    repeating-linear-gradient(90deg, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(0deg, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px),
+    linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+}
+
+/* Объявляем CSS переменные с clamp() */
+:root {
+  --header-heght: clamp(327px, 50vh, 368px);
+  --block-width: clamp(375px, 50vw, 1200px);
+  --footer-width: clamp(306px,50vw,335px);
+  --logo-width: clamp(343px,50vw,455px);
+  --logo-size: clamp(42px, 10vw, 55px);
+  --heading-size: clamp(1.5rem, 4vw, 3rem);
+  --header-title: clamp(1rem, 3vw, 2rem)
+}
+
+:root {
+  /* Шрифты */
+  --main-font: 'Inter', sans-serif;
+  --accent-font: 'PressStart2P', fantasy;
+  
+  /* Насыщенность шрифта */
+  --text-weight: 400;
+  --title-weight: 700;
+}
