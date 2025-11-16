@@ -21,11 +21,32 @@
   background-image: var(--bg-pattern);
   background-size: cover;
   background-attachment: fixed;
+  margin: 0;
 }
 
-.logopc {
+.logo-group {
   width: var(--logo-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
+
+
+.header-title {
+  /* font-family: 'Press Start 2P', regular; другой шрифт для заголовка */
+  font-weight: 400;
+  margin: 0;
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+    font-size: var(--header-title);
+    font-variation-settings: "wght" var(--title-weight);
+   text-align: center;
+    /* justify-self: center;
+  align-self: center; */
+
+}
+
 
 .header {
   height: var(--header-height);
@@ -44,13 +65,13 @@
   gap: 20px;
 }
 
-/* ватермарк, шрифт, кнопки
+/*  кнопки, переделать 
 всплывающее окно, ховер-элементы, */
 
 .post-header {
   /* font-style: 'Inter'; */
   font-size: 18px;
-  font-weight: 715;
+  font-variation-settings: "wght" var(--title-weight);
   margin: 5px;
   
   /* font-style: bold; */
@@ -58,23 +79,15 @@
 
 .header-logo {
   font-size: var(--logo-size);
-  /* min-height: 83px;  */
-  /* font-family: 'Press Start 2P', regular; */
+
   font-weight: 400;
   display: grid;
   justify-self: center;
   align-self: center;
-  margin: 0;
-  /* width: 343px; */
+  font-family: var(--accent-font);
 }
 
-.header-title {
-  font-size: var(--title-size);
-  /* font-family: 'Press Start 2P', regular; другой шрифт для заголовка */
-  font-weight: 400;
-  margin: 0;
-  text-transform: lowercase;
-}
+
 
 .post {
   margin: 50px 0 0 0;
@@ -95,6 +108,78 @@
   width: 100%;
 }
 
+.image-container {
+  position: relative;
+}
+/* .image-container.watermark::after {
+  content: "&lt;/HTML&gt;";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: #000;
+  z-index: 2;
+  text-shadow: 
+    -1px -1px 0 rgba(255, 255, 255, 0.5),
+     1px -1px 0 rgba(255, 255, 255, 0.5),
+    -1px  1px 0 rgba(255, 255, 255, 0.5),
+     1px  1px 0 rgba(255, 255, 255, 0.5);
+  mix-blend-mode: darken;
+  pointer-events: none;
+} */
+
+.watermark {
+  position:absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  color: #000;
+  text-shadow: 
+    -1px -1px 0 rgba(255, 255, 255, 0.5),
+    1px -1px 0 rgba(255, 255, 255, 0.5),
+    -1px 1px 0 rgba(255, 255, 255, 0.5),
+    1px 1px 0 rgba(255, 255, 255, 0.5); /* Белая обводка с прозрачностью 0.5 */
+}
+/* Вторая картинка */
+.post:nth-of-type(2) .post-image {
+  filter: sepia(60%) ;
+}
+
+/* Третья картинка */
+.post:nth-of-type(3) .post-image {
+  filter: saturate(300%);
+ 
+}
+
+/* Четвертая картинка */
+.post:nth-of-type(4) .post-image {
+  filter: sepia(50%) contrast(80%) saturate(150%);
+}
+
+/* Пятая картинка */
+.post:nth-of-type(5) .post-image {
+  filter: invert(80%);
+}
+
+/* Шестая картинка */
+.post:nth-of-type(6) .post-image {
+  filter: grayscale(70%) sepia(70%);
+}
+
+/* Седьмая картинка */
+.post:nth-of-type(7) .post-image {
+  filter: blur(10px);
+}
+
+/* Восьмая картинка */
+.post:nth-of-type(8) .post-image {
+  filter: hue-rotate(90deg) blur(1px);  
+}
+
 .footer {
   height: var(--header-height);
   min-height: 84px;
@@ -111,6 +196,27 @@
   border: solid 2px #000;
 }
 
+.footer-title {
+  font-variation-settings: "wght" var(--title-weight);
+font-family: var(--accent-font);
+font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.diskette-icon {
+  fill: #000;
+  transition: fill 0.3s ease;
+}
+
+.footer:hover .diskette-icon {
+  fill: #fff;
+}
 
 /* кнопка */
 .card__like-group {
@@ -118,8 +224,29 @@
   justify-content: flex-end;
   align-items: center;
   margin: 20px;
-  /* gap: 5px; */
+  gap: 5px;
 }
+
+.card__icon-button {
+  width: 38px;
+  height: 38px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
+.like-icon {
+  height: 27px;
+}
+
 .card__like-button {
   position: relative;
   width: 130px;

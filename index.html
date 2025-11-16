@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="./images/favicon.png"
+      sizes="32x32"
+    />
+
     <title>Закрывающий тег</title>
     <link rel="stylesheet" href="./fonts/fonts.css" />
     <link rel="stylesheet" href="./styles/variables.css" />
@@ -13,9 +22,9 @@
 
   <body class="page">
     <header class="header">
-      <img class="logopc" src="./images/logopc.svg" />
-      <!-- <h1 class="logo-group header-logo">&lt;/HTML&gt;</h1>
-      <h2 class="logo-group header-title">закрывающий тег</h2> -->
+      <!-- <img class="logopc" src="./images/logopc.svg" /> -->
+      <h1 class="logo-group header-logo">&lt;/HTML&gt;</h1>
+      <h2 class="logo-group header-title">закрывающий тег</h2>
     </header>
 
     <main>
@@ -23,7 +32,10 @@
         <h2 class="post-header">
           Фритрек и нулевой спринт: Подготовка к работе
         </h2>
-        <img class="post-image" src="./images/1pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           Это было самое начало пути. На этом этапе важно было проникнуться
           основами и настроиться на учёбу. И, возможно, подумать, как новые
@@ -32,14 +44,25 @@
         <p class="post-text">
           Место для ваших воспоминаний об окончании второго спринта.
         </p>
-        <button class="card__like-button">
-          <span class="button__text">Like</span>
-        </button>
+        <div class="card__like-group">
+          <button class="card__icon-button" aria-label="Лайк">
+            <svg class="like-icon">
+              <use xlink:href="./svg/heart.svg"></use>
+            </svg>
+          </button>
+
+          <button class="card__like-button">
+            <span class="button__text">Like</span>
+          </button>
+        </div>
       </article>
 
       <article class="post post-start">
         <h2 class="post-header">1 спринт: Я - чистый лист</h2>
-        <img class="post-image" src="./images/2pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           На первых этапах мы работали со страхами и сомнениями, которые часто
           испытывают новички. Один из них — страх перед чистым листом. Это,
@@ -58,7 +81,10 @@
 
       <article class="post post-clear-list">
         <h2 class="post-header">1 спринт: А если не получится?</h2>
-        <img class="post-image" src="./images/3pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           Первый проект — позади! Но это всё ещё самое начало пути. Радость
           могла быстро померкнуть и смениться ожиданием провала. Или вы,
@@ -76,7 +102,10 @@
 
       <article class="post post-if">
         <h2 class="post-header">2 спринт: Погоня за идеалом</h2>
-        <img class="post-image" src="./images/4pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           На этом этапе вы уже достаточно разбирались в основах вёрстки, чтобы
           понять, как много ещё впереди. Вы могли попытаться погнаться за
@@ -95,7 +124,10 @@
 
       <article class="post post-ideal">
         <h2 class="post-header">2 спринт: О тех, кто рядом</h2>
-        <img class="post-image" src="./images/5pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           Всё это время вы были не одиноки (хотя, возможно, иногда и
           чувствовали, что одни против целого мира). Вас окружали одногруппники,
@@ -113,7 +145,10 @@
 
       <article class="post post-friends">
         <h2 class="post-header">3 спринт: Обходные стратегии</h2>
-        <img class="post-image" src="./images/6pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           На этом курсе вы постоянно решали разные задачи. В какой-то момент вам
           могло показаться, что решения просто иссякли. Значит, пришло время
@@ -130,7 +165,10 @@
 
       <article class="post post-strategy">
         <h2 class="post-header">3 спринт: Когда опускаются руки</h2>
-        <img class="post-image" src="./images/7pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           Во время учёбы часто возникает чувство, когда не знаешь, за что
           хвататься. Вроде и проектную пора сдавать, и задачи хочется порешать,
@@ -148,7 +186,10 @@
 
       <article class="post">
         <h2 class="post-header">«Сейчас я здесь»</h2>
-        <img class="post-image" src="./images/8pc.svg" />
+        <div class="image-container">
+          <img class="post-image" src="./images/1pc.svg" />
+          <p class="watermark">&lt;/HTML&gt;</p>
+        </div>
         <p class="post-text">
           Сейчас вы уже очень много знаете о вёрстке. Но это только начало.
           Во-первых, впереди ещё много материала про «красотищу». Во-вторых, с
@@ -167,10 +208,25 @@
       </article>
     </main>
     <script src="./scripts/like.js"></script>
+
+    <svg style="display: none">
+      <symbol id="diskette-icon" viewBox="0 0 32 32">
+        <path
+          d="M22 2H10a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 24H10V4h12v22z"
+        />
+        <path
+          d="M20 8h-8v4h8V8zm-6 2h4v2h-4v-2zm8 8h-6v2h6v-2zm0 4h-6v2h6v-2z"
+        />
+      </symbol>
+    </svg>
   </body>
 
   <footer class="footer">
-    <div>floppy</div>
-    <h2>Сохранить на память</h2>
+    <div class="footer-content">
+      <svg class="diskette-icon" width="32" height="32">
+        <use xlink:href="#diskette-icon"></use>
+      </svg>
+      <h2 class="footer-title">Сохранить на память</h2>
+    </div>
   </footer>
 </html>
