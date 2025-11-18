@@ -39,3 +39,36 @@ function setButtonText(heart, button) {
     );
   }
 }
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const footerContent = document.querySelector('.footer-content');
+  const dialog = document.getElementById('save-dialog');
+  
+  if (footerContent && dialog) {
+    footerContent.addEventListener('click', () => {
+      dialog.showModal();
+      document.body.classList.add('dialog-open');
+    });
+    
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('dialog-open');
+    });
+    
+    // Закрытие при клике вне диалога
+    dialog.addEventListener('click', (event) => {
+      const dialogDimensions = dialog.getBoundingClientRect();
+      if (
+        event.clientX < dialogDimensions.left ||
+        event.clientX > dialogDimensions.right ||
+        event.clientY < dialogDimensions.top ||
+        event.clientY > dialogDimensions.bottom
+      ) {
+        dialog.close();
+      }
+    });
+  }
+});

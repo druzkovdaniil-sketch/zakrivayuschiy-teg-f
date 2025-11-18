@@ -34,7 +34,6 @@
 
 
 .header-title {
-  /* font-family: 'Press Start 2P', regular; другой шрифт для заголовка */
   font-weight: 400;
   margin: 0;
   font-family: var(--accent-font);
@@ -42,8 +41,7 @@
     font-size: var(--header-title);
     font-variation-settings: "wght" var(--title-weight);
    text-align: center;
-    /* justify-self: center;
-  align-self: center; */
+
 
 }
 
@@ -65,16 +63,13 @@
   gap: 20px;
 }
 
-/*  кнопки, переделать 
-всплывающее окно, ховер-элементы, */
+/*  осталось - починить цветные границы у картинки и сделать прозрачным ватермарк,анимации сердца */
 
 .post-header {
   /* font-style: 'Inter'; */
   font-size: 18px;
   font-variation-settings: "wght" var(--title-weight);
   margin: 5px;
-  
-  /* font-style: bold; */
 }
 
 .header-logo {
@@ -102,32 +97,22 @@
   margin: 20px;
   line-height: 21px;
   font-size: 18px;
+
 }
 
 .post-image {
   width: 100%;
+  overflow: hidden;
+  display: block;
 }
 
 .image-container {
   position: relative;
+  overflow: hidden;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  line-height: 0;
 }
-/* .image-container.watermark::after {
-  content: "&lt;/HTML&gt;";
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-family: var(--accent-font);
-  font-size: 14px;
-  color: #000;
-  z-index: 2;
-  text-shadow: 
-    -1px -1px 0 rgba(255, 255, 255, 0.5),
-     1px -1px 0 rgba(255, 255, 255, 0.5),
-    -1px  1px 0 rgba(255, 255, 255, 0.5),
-     1px  1px 0 rgba(255, 255, 255, 0.5);
-  mix-blend-mode: darken;
-  pointer-events: none;
-} */
 
 .watermark {
   position:absolute;
@@ -138,11 +123,15 @@
   font-family: var(--accent-font);
   font-size: 14px;
   color: #000;
+   mix-blend-mode: difference;
+   
+  
   text-shadow: 
     -1px -1px 0 rgba(255, 255, 255, 0.5),
     1px -1px 0 rgba(255, 255, 255, 0.5),
     -1px 1px 0 rgba(255, 255, 255, 0.5),
     1px 1px 0 rgba(255, 255, 255, 0.5); /* Белая обводка с прозрачностью 0.5 */
+    opacity: 0,7;
 }
 /* Вторая картинка */
 .post:nth-of-type(2) .post-image {
@@ -173,6 +162,8 @@
 /* Седьмая картинка */
 .post:nth-of-type(7) .post-image {
   filter: blur(10px);
+  margin: 0 -5px;
+width: calc(100% + 10px);
 }
 
 /* Восьмая картинка */
@@ -181,8 +172,6 @@
 }
 
 .footer {
-  height: var(--header-height);
-  min-height: 84px;
   width: var(--footer-width);
   display: flex;
   flex-direction: column;
@@ -204,14 +193,26 @@ font-size: 14px;
 
 .footer-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  max-height: 84px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+@media (width <= 376px) {
+  .footer-content {
+
+  flex-direction: column;
   gap: 10px;
+  }
 }
 
 .diskette-icon {
   fill: #000;
   transition: fill 0.3s ease;
+  width: 32px;
+  height: 32px;
 }
 
 .footer:hover .diskette-icon {
@@ -243,9 +244,105 @@ font-size: 14px;
   outline: none;
 }
 
+
+/* Стили для иконки сердца */
 .like-icon {
-  height: 27px;
+  width: 39px;
+  height: 36px;
+  cursor: pointer;
+  transform-origin: center;
 }
+
+/* Состояния по умолчанию для частей сердца */
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon .contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
+.like-icon .sparks {
+  opacity: 0;
+  fill: var(--animation-fill-color);
+}
+.like-icon .heart {
+  transform-origin: center;
+}
+/* Ховер на сердечко */
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/* Активное состояние (зажатие) */
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.1s linear;
+}
+
+/* Состояние лайкнуто */
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked.contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity 0.3s ease-in 0.3s;
+}
+
+/* Стили для кнопки с иконкой сердца */
+.card__icon-button {
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+   width: 39px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+.card__icon-button:focus-visible {
+  border-color: var(--contour-color);
+}
+
 
 .card__like-button {
   position: relative;
@@ -286,3 +383,99 @@ font-size: 14px;
 .card__like-button:hover .button__text {
   color: #fff;
 }
+
+/* здесь и далее - о диалоге */
+
+
+
+
+
+
+/* Стили для модального окна */
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 20px 30px 20px 30px;
+  border: 2px solid #000;
+  background-color: #fff;
+  width: var(--dialog-width);
+  height: 191px;
+  display: none;
+  overflow: hidden;
+}
+
+.dialog[open] {
+  display: flex;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+/* Отключаем скролл страницы когда диалог открыт */
+body:has(.dialog[open]) {
+  overflow: hidden;
+}
+
+.dialog-open {
+  overflow: hidden;
+}
+
+.dialog__content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.dialog__header {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog__diskette {
+  width: 39px;
+  height: 39px;
+  color: #000;
+  flex-shrink: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  display: block;
+}
+
+.dialog__diskette svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.dialog__title {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: uppercase;
+  max-width: 80%;
+  
+}
+
+.dialog__form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+}
+
+.dialog__button {
+  width: var(--dialog-button-width);
+  height: 38px;
+}
+
