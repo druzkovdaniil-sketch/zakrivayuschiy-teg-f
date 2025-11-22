@@ -45,7 +45,7 @@ function setButtonText(heart, button) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  const footerContent = document.querySelector('.footer-content');
+  const footerContent = document.querySelector('.save-card');
   const dialog = document.getElementById('save-dialog');
   
   if (footerContent && dialog) {

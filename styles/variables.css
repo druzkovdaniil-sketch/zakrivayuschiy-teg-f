@@ -26,8 +26,3 @@
   --discette-icon-width: clamp(21px, 2em, 28px);
   --discette-icon-height: clamp(21px, 2em, 28px);
 }
-@media (width <= 376px) {
-  :root {
-    --header-height: 327px;
-  }
-}
