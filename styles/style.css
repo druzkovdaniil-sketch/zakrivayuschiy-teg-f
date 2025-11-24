@@ -382,8 +382,6 @@
   height: auto;
   z-index: 1;
    position: relative;
-   mix-blend-mode: difference;
-   color: currentColor;
 }
 .dialog__diskette {
   min-width: 39px;
